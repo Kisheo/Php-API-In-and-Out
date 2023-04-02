@@ -34,13 +34,13 @@ Before you can use this script, you'll need to update the configuration settings
 
 To use this script, follow these steps:
 
-    Run the scrape.php file to scrape the latest news and save it to the database. You can do this by executing the following command in your terminal or command prompt:
+Run the scrape.php file to scrape the latest news and save it to the database. You can do this by executing the following command in your terminal or command prompt:
 
 > php scrape.php
 
 Use the retrieve.php file to retrieve the latest news as a JSON response. You can do this by navigating to the retrieve.php file in your web browser or executing the following command in your terminal or command prompt:
 
-    php -S localhost:8000
+> php -S localhost:8000
 
 Then, go to http://localhost:8000/retrieve.php to retrieve the latest news as a JSON response.
 
