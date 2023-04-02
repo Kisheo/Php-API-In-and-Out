@@ -3,6 +3,9 @@
 // include the config file
 require_once 'config.php';
 
+//including the scraping file
+include('scrape.php');
+
 // connect to the database
 require_once 'connect.php';
 
