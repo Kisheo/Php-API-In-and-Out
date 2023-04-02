@@ -50,4 +50,32 @@ foreach ($news["data"] as $article) {
   mysqli_query($conn, $sql);
 }
 
+//retreiving from database
+$sql = "SELECT * FROM posts ORDER BY published_at DESC LIMIT 30";
+$result = mysqli_query($conn, $sql);
+
+$news_items = array();
+if (mysqli_num_rows($result) > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+    $news_item = array(
+      'id' => $row['id'],
+      'author' => $row['author'],
+      'title' => $row['title'],
+      'description' => $row['description'],
+      'url' => $row['url'],
+      'source' => $row['source'],
+      'image' => $row['image'],
+      'category' => $row['category'],
+      'published_at' => $row['published_at']
+    );
+    array_push($news_items, $news_item);
+  }
+}
+
+// Encode the news items array to JSON format
+$json = json_encode($news_items);
+
+// Output the JSON response
+echo $json;
+
 ?>
