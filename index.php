@@ -34,4 +34,20 @@ curl_close($ch);
 // Decode the JSON response
 $news = json_decode($response, true);
 
+//storing the news
+foreach ($news["data"] as $article) {
+  $author = mysqli_real_escape_string($conn, $article["author"]);
+  $title = mysqli_real_escape_string($conn, $article["title"]);
+  $description = mysqli_real_escape_string($conn, $article["description"]);
+  $url = mysqli_real_escape_string($conn, $article["url"]);
+  $source = mysqli_real_escape_string($conn, $article["source"]["name"]);
+  $image = mysqli_real_escape_string($conn, $article["image"]);
+  $category = mysqli_real_escape_string($conn, $article["category"]);
+  $published_at = mysqli_real_escape_string($conn, $article["published_at"]);
+
+  $sql = "INSERT INTO posts (author, title, description, url, source, image, category, published_at) 
+          VALUES ('$author', '$title', '$description', '$url', '$source', '$image', '$category', '$published_at')";
+  mysqli_query($conn, $sql);
+}
+
 ?>
