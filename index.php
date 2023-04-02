@@ -14,7 +14,7 @@ if (!$conn) {
 }
 
 //fetching news
-$url = "http://api.mediastack.com/v1/news?access_key=f32591403d2b1dc28ff8769ad5f63a27&languages=en&countries=us&date=" . date("Y-m-d");
+$url = "http://api.mediastack.com/v1/news?access_key=API_KEY&languages=en&countries=us&date=" . date("Y-m-d");
 
 // Initialize cURL
 $ch = curl_init();
